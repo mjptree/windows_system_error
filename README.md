@@ -1,8 +1,8 @@
-# windows_system_error
+# Windows System Error Types
 
-Wrap windows system error codes in `std::system_error` types and handle them like `std::exceptions`.
+Wrap windows system error codes in `std::system_error` types and handle them like `std::exception`.
 
-This library is currently highly experimental. The API will most certainly undergo substantial changes, before full stabilization.
+This library is currently **highly experimental**. The API will most certainly undergo substantial changes, before full stabilization.
 
 # Example
 
@@ -14,7 +14,7 @@ This library is currently highly experimental. The API will most certainly under
 // Sequential write from buffer to file
 DWORD write(HANDLE handle, const char* buffer) {
   DWORD bytes = 0;
-  LPWORD len = sizeof buf;
+  DWORD len = sizeof buf;
   BOOL result = WriteFile(handle, buffer, len, &bytes, nullptr);
   if (result) {
     return bytes;

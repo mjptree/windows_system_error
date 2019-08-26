@@ -18,12 +18,9 @@ target_include_directories(windows_system_error
         )
 
 # Build tests
+add_subdirectory(dependencies/Catch2)
 add_executable(test_win_error
         test/testmain.cpp
         test/test_win_error.cpp
         )
-target_include_directories(test_win_error
-        PRIVATE
-            test/catch2
-        )
-target_link_libraries(test_win_error windows_system_error)
+target_link_libraries(test_win_error Catch2 windows_system_error)

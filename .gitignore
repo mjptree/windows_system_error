@@ -1,9 +1,16 @@
-bin
-lib
-build_files
-doc
-CMakeFiles
-CMakeScripts
+# Directories
+bin/
+lib/
+build_files/
+doc/
+CMakeFiles/
+CMakeScripts/
+cmake-build-debug/
+build/
+.vs/
+.idea/
+
+# Files
 CMakeCache.txt
 CTestTestfile.cmake
 cmake_install.cmake
@@ -14,6 +21,3 @@ cmake_install.cmake
 Makefile
 *.pyc
 .hgignore
-.idea
-cmake-build-debug
-build
