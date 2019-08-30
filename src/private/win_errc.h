@@ -5,6 +5,6 @@ namespace wse {
 
     enum class [[nodiscard]] win_errc;
 
-}
+} // namespace wse
 
 #endif // WIN_ERRC_H

@@ -13,6 +13,6 @@ namespace wse {
         [[nodiscard]] std::string message(int ev) const override;
     } winSystemError{};
     
-}
+} // namespace wse
 
 #endif // WIN_ERROR_CATEGORY_H

@@ -1,23 +1,25 @@
-#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) && !defined(_AMD64_) && defined(_M_IX86)
-#define _X86_
-#endif
+#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) && !defined(_AMD64_)
 
-#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) && !defined(_AMD64_) && defined(_M_AMD64)
-#define _AMD64_
-#endif
+	#if defined(_M_IX86)
+		#define _X86_
+	#endif
 
-#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) && !defined(_AMD64_) && defined(_M_M68K)
-#define _68K_
-#endif
+	#if defined(_M_AMD64)
+		#define _AMD64_
+	#endif
 
-#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) && !defined(_AMD64_) && defined(_M_MPPC)
-#define _MPPC_
-#endif
+	#if defined (_M_M68K)
+		#define _68K_
+	#endif
 
-#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_M_IX86) && !defined(_AMD64_) && defined(_M_IA64)
-#if !defined(_IA64_)
-        #define _IA64_
-    #endif
+	#if defined(_M_MPPC)
+		#define _MPPC_
+	#endif
+
+	#if !defined(_M_IX86) && defined(_M_IA64)
+		#define _IA64_
+	#endif
+
 #endif
 
 #include <errhandlingapi.h>
@@ -29,7 +31,7 @@ namespace std {
         return {static_cast<int>(ec), wse::winSystemError};
     }
 
-}
+} // namespace std
 
 namespace wse {
 
@@ -56,4 +58,5 @@ namespace wse {
     bool operator==(const win_error& lhs, const win_errc& rhs) noexcept {
         return static_cast<win_errc>(lhs.code().value()) == rhs;
     }
-}
+
+} // namespace wse

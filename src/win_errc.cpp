@@ -3069,4 +3069,4 @@ namespace wse {
         store_license_revoked                                   = STORE_ERROR_LICENSE_REVOKED,                                              // 15864L
     };
 
-}
+} // namespace wse
